@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
@@ -24,6 +26,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // @see https://laravel.com/docs/10.x/routing#explicit-binding
+        $this->configureModelBinding();
+
         $this->configureRateLimiting();
 
         $this->routes(function () {
@@ -44,5 +49,12 @@ class RouteServiceProvider extends ServiceProvider
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
+    }
+
+    protected function configureModelBinding(): void
+    {
+        // If want to set explicit binding more globally
+
+        // Route::model('user', MyCustomUser::class);
     }
 }
