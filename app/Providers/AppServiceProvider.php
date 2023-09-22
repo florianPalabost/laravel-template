@@ -6,6 +6,10 @@ namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
+use Spatie\Health\Checks\Checks\DatabaseCheck;
+use Spatie\Health\Checks\Checks\EnvironmentCheck;
+use Spatie\Health\Checks\Checks\UsedDiskSpaceCheck;
+use Spatie\Health\Facades\Health;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,5 +31,11 @@ class AppServiceProvider extends ServiceProvider
         // - Assigning non-fillable attributes
         // - Accessing attributes that don’t exist (or weren’t retrieved).
         Model::shouldBeStrict(! app()->isProduction());
+
+        Health::checks([
+            UsedDiskSpaceCheck::new(),
+            DatabaseCheck::new(),
+            EnvironmentCheck::new(),
+        ]);
     }
 }
