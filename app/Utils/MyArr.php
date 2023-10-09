@@ -10,18 +10,14 @@ use Illuminate\Support\Arr;
 class MyArr extends Arr
 {
     /** Getters */
-
     /**
-     * @param ArrayAccess<string, mixed>|array $arr
-     * @param string|int|null $key
-     * @param string $default
-     * @return string
+     * @param  ArrayAccess<string, mixed>|array  $arr
      */
     public static function getString(ArrayAccess|array $arr, string|int|null $key, string $default = ''): string
     {
         $str = parent::get($arr, $key);
 
-        if (is_string($str) === false) {
+        if (! is_string($str)) {
             return $default;
         }
 
@@ -29,16 +25,13 @@ class MyArr extends Arr
     }
 
     /**
-     * @param ArrayAccess<string, mixed>|array $arr
-     * @param string|int|null $key
-     * @param int $default
-     * @return int
+     * @param  ArrayAccess<string, mixed>|array  $arr
      */
     public static function getInt(ArrayAccess|array $arr, string|int|null $key, int $default = 0): int
     {
         $int = parent::get($arr, $key);
 
-        if (is_int($int) === false) {
+        if (! is_int($int)) {
             return $default;
         }
 
@@ -46,16 +39,13 @@ class MyArr extends Arr
     }
 
     /**
-     * @param ArrayAccess<string, mixed>|array $arr
-     * @param string|int|null $key
-     * @param float $default
-     * @return float
+     * @param  ArrayAccess<string, mixed>|array  $arr
      */
-    public static function getFloat(ArrayAccess|array $arr, string|int|null $key, float $default = 0.0): float
+    public static function getFloat(ArrayAccess|array $arr, int|string|null $key, float $default = 0.0): float
     {
         $float = parent::get($arr, $key);
 
-        if (is_float($float) === false) {
+        if (! is_float($float)) {
             return $default;
         }
 
@@ -63,16 +53,13 @@ class MyArr extends Arr
     }
 
     /**
-     * @param ArrayAccess|array $arr
-     * @param string|int|null $key
-     * @param bool $default
-     * @return bool
+     * @param  ArrayAccess<string, mixed>|array  $arr
      */
     public static function getBool(ArrayAccess|array $arr, string|int|null $key, bool $default = false): bool
     {
         $bool = parent::get($arr, $key);
 
-        if (is_bool($bool) === false) {
+        if (! is_bool($bool)) {
             return $default;
         }
 
@@ -80,16 +67,13 @@ class MyArr extends Arr
     }
 
     /**
-     * @param ArrayAccess<string, mixed>|array $arr
-     * @param string|int|null $key
-     * @param array $default
-     * @return array
+     * @param  ArrayAccess<string, mixed>|array  $arr
      */
     public static function getArr(ArrayAccess|array $arr, string|int|null $key, array $default = []): array
     {
         $array = parent::get($arr, $key);
 
-        if (is_array($array) === false) {
+        if (! is_array($array)) {
             return $default;
         }
 
