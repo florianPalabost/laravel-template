@@ -15,6 +15,7 @@ declare(strict_types=1);
 
 uses(
     Tests\TestCase::class,
+    \MohammedManssour\FormRequestTester\TestsFormRequests::class,
     // Illuminate\Foundation\Testing\RefreshDatabase::class,
 )->beforeAll(function () {
     $app    = require_once __DIR__ . '../../bootstrap/app.php';
