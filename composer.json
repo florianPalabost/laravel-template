@@ -2,7 +2,10 @@
     "name": "florian-palabost/laravel-template",
     "type": "project",
     "description": "Laravel template",
-    "keywords": ["template", "laravel"],
+    "keywords": [
+        "template",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.1",
@@ -43,16 +46,25 @@
         "clean": [
             "./vendor/bin/rector process",
             "./vendor/bin/pint --dirty",
-            "./vendor/bin/phpstan -n"  
+            "./vendor/bin/phpstan -n"
+        ],
+        "ide-helper": [
+            "@php artisan ide-helper:generate -n",
+            "@php artisan ide-helper:models -n",
+            "@php artisan ide-helper:eloquent -n",
+            "@php artisan ide-helper:meta -n"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
+        "post-install-cmd": [
+            "@ide-helper"
+        ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-            "@php artisan ide-helper:generate -n",
-            "@php artisan ide-helper:models -n"
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@ide-helper"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
