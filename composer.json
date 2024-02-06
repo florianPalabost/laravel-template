@@ -24,7 +24,7 @@
         "mockery/mockery": "^1.4.4",
         "mohammedmanssour/form-request-tester": "^1.2",
         "nunomaduro/collision": "^7.0",
-        "nunomaduro/larastan": "^2.6",
+        "larastan/larastan": "^2.6",
         "pestphp/pest": "^2.12",
         "phpunit/phpunit": "^10.0",
         "rector/rector": "^0.17.10",
