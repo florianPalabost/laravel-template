@@ -11,7 +11,7 @@ class MyArr extends Arr
 {
     /** Getters */
     /**
-     * @param  ArrayAccess<string, mixed>|array  $arr
+     * @param ArrayAccess<string, mixed>|array $arr
      */
     public static function getString(ArrayAccess|array $arr, string|int|null $key, string $default = ''): string
     {
@@ -25,7 +25,7 @@ class MyArr extends Arr
     }
 
     /**
-     * @param  ArrayAccess<string, mixed>|array  $arr
+     * @param ArrayAccess<string, mixed>|array $arr
      */
     public static function getInt(ArrayAccess|array $arr, string|int|null $key, int $default = 0): int
     {
@@ -39,7 +39,7 @@ class MyArr extends Arr
     }
 
     /**
-     * @param  ArrayAccess<string, mixed>|array  $arr
+     * @param ArrayAccess<string, mixed>|array $arr
      */
     public static function getFloat(ArrayAccess|array $arr, int|string|null $key, float $default = 0.0): float
     {
@@ -53,7 +53,7 @@ class MyArr extends Arr
     }
 
     /**
-     * @param  ArrayAccess<string, mixed>|array  $arr
+     * @param ArrayAccess<string, mixed>|array $arr
      */
     public static function getBool(ArrayAccess|array $arr, string|int|null $key, bool $default = false): bool
     {
@@ -67,7 +67,7 @@ class MyArr extends Arr
     }
 
     /**
-     * @param  ArrayAccess<string, mixed>|array  $arr
+     * @param ArrayAccess<string, mixed>|array $arr
      */
     public static function getArr(ArrayAccess|array $arr, string|int|null $key, array $default = []): array
     {

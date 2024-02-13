@@ -15,14 +15,12 @@ declare(strict_types=1);
 
 uses(
     Tests\TestCase::class,
-    \MohammedManssour\FormRequestTester\TestsFormRequests::class,
-    // Illuminate\Foundation\Testing\RefreshDatabase::class,
+    MohammedManssour\FormRequestTester\TestsFormRequests::class,
+    // Illuminate\Foundation\Testing\LazilyRefreshDatabase::class,
 )->beforeAll(function () {
-    $app    = require_once __DIR__ . '../../bootstrap/app.php';
+    $app = require_once __DIR__ . '../../bootstrap/app.php';
     $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
     $kernel->bootstrap();
-
-    Artisan::call('migrate:fresh --database=testing --seed -n');
 })->in('Feature');
 
 /*
